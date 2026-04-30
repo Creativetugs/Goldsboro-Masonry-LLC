@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Goldsboro Masonry LLC | Premium Masonry Services NC</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --brick-red: #B22222;
+            --charcoal: #1F1F1F;
+            --warm-gray: #F5F5F5;
+            --concrete: #8A8A8A;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--warm-gray);
+            color: var(--charcoal);
+        }
+
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .bg-brick { background-color: var(--brick-red); }
+        .text-brick { color: var(--brick-red); }
+        .border-brick { border-color: var(--brick-red); }
+        
+        .hero-gradient {
+            background: linear-gradient(rgba(31, 31, 31, 0.8), rgba(31, 31, 31, 0.6)), 
+                        url('https://www.goldsboromasonryllc.com/church.png') center/cover no-repeat;
+        }
+
+        .btn-primary {
+            background-color: var(--brick-red);
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 14px 0 rgba(178, 34, 34, 0.39);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            filter: brightness(1.1);
+            box-shadow: 0 6px 20px rgba(178, 34, 34, 0.23);
+        }
+
+        .card-shadow {
+            box-shadow: 0 10px 30px -5px rgba(0,0,0,0.05);
+        }
+
+        .service-icon {
+            height: 48px;
+            width: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            background: rgba(178, 34, 34, 0.1);
+            color: var(--brick-red);
+            margin-bottom: 1.5rem;
+        }
+
+        .nav-link {
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: var(--brick-red);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .floating-cta {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 50;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--brick-red);
+            box-shadow: 0 0 0 3px rgba(178, 34, 34, 0.1);
+        }
+
+        /* Aspect ratio utility for gallery */
+        .gallery-item {
+            aspect-ratio: 1 / 1;
+        }
+        /* Image Handling - Fixed Shadow/White Space Issues */
+        .img-container {
+            overflow: hidden;
+            background-color: #eee; /* Prevents white flash/space */
+            position: relative;
+            border-radius: 4px; /* Subtle rounding instead of aggressive curves */
+        }
+        
+        .img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block; /* Removes baseline gap */
+            transition: transform 0.5s ease;
+        }
+
+        .img-container:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Project Labels */
+        .project-tag {
+            background: var(--brick-red);
+            color: white;
+            padding: 4px 12px;
+            font-size: 0.7rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 10;
+        }
+
+        /* Buttons */
+        .btn-solid {
+            background: var(--brick-red);
+            color: white;
+            padding: 16px 32px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+        .btn-solid:hover {
+            background: #8B0000;
+            transform: translateY(-2px);
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-up { animation: slideUp 0.8s ease forwards; }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- NAVIGATION -->
+    <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <div class="flex items-center">
+                    <img src="https://www.goldsboromasonryllc.com/GMlogoCircleTrans2.png" alt="Goldsboro Masonry Logo" class="h-16 w-auto mr-3">
+                    <div class="flex flex-col leading-tight hidden sm:flex">
+                        <span class="text-xl font-bold tracking-tight text-[#1F1F1F]">GOLDSBORO <span class="text-brick">MASONRY</span></span>
+                        <span class="text-[10px] uppercase tracking-[0.2em] font-semibold text-gray-500">Established Excellence</span>
+                    </div>
+                </div>
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="#services" class="nav-link font-medium text-sm">Services</a>
+                    <a href="#residential" class="nav-link font-medium text-sm">Residential</a>
+                    <a href="#commercial" class="nav-link font-medium text-sm">Commercial</a>
+                    <a href="#gallery" class="nav-link font-medium text-sm">Our Work</a>
+                    <a href="#contact" class="btn-primary text-white px-6 py-2.5 rounded-sm text-sm font-semibold">Get Estimate</a>
+                </div>
+                <div class="md:hidden">
+                    <a href="tel:9194409715" class="text-brick p-2 border border-gray-200 rounded-full inline-block">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <header class="relative hero-gradient min-h-[85vh] flex items-center">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+            <div class="max-w-3xl text-white">
+                <div class="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-md border border-white/20 px-4 py-1 rounded-full mb-6">
+                    <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
+                    <span class="text-xs font-semibold tracking-wider uppercase">28+ Years Experience • BBB A+ Rated</span>
+                </div>
+                <h1 class="text-5xl md:text-7xl font-black mb-6 leading-[1.1] uppercase tracking-tighter">
+                    High-Quality Masonry Work That Lasts a <span class="text-brick italic">Lifetime</span>
+                </h1>
+                <p class="text-lg md:text-xl text-gray-200 mb-10 max-w-2xl leading-relaxed">
+                    Brick, Stone, Block & Pavers for Residential and Commercial Projects Across Eastern North Carolina. Built with precision, owned by family.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="#contact" class="btn-primary text-white px-10 py-4 rounded-sm font-bold text-center">Get Free Estimate</a>
+                    <a href="tel:9194409715" class="bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/30 text-white px-10 py-4 rounded-sm font-bold transition-all text-center">
+                        Call (919) 440-9715
+                    </a>
+                </div>
+                <p class="mt-8 text-sm text-gray-300 flex items-center">
+                    <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"></path></svg>
+                    Serving Goldsboro, Raleigh, Wilson, Greenville & surrounding areas
+                </p>
+            </div>
+        </div>
+    </header>
+
+    <!-- QUICK INTRO -->
+    <section class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <div>
+                    <h2 class="text-5xl font-black mb-6 uppercase tracking-tighter">Goldsboro's Trusted <br/><span class="text-brick">Masonry Experts</span></h2>
+                    <div class="w-20 h-1 bg-brick mb-8"></div>
+                    <p class="text-gray-600 text-lg leading-relaxed mb-6">
+                        Goldsboro Masonry LLC is a locally owned and operated masonry contractor serving Eastern North Carolina. Led by Anthony Jackson, we specialize in high-quality brick, stone, block, and paver work.
+                    </p>
+                    <p class="text-gray-600 text-lg leading-relaxed">
+                        With over 28 years of experience, we focus on delivering durable, precise, and visually striking masonry built to stand the test of time. From public infrastructure to private estates, we bring excellence to every brick.
+                    </p>
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="space-y-4 pt-8">
+                        <img src="https://www.goldsboromasonryllc.com/CSX-masonry-1.jpg" class="rounded-sm grayscale hover:grayscale-0 transition-all duration-500 shadow-xl w-full h-64 object-cover" alt="CSX Project Masonry">
+                        <div class="bg-brick p-8 text-white">
+                            <span class="text-4xl font-bold block mb-1">28+</span>
+                            <span class="text-xs uppercase tracking-widest opacity-80">Years of Craft</span>
+                        </div>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="bg-charcoal p-8 text-white">
+                            <span class="text-4xl font-bold block mb-1">A+</span>
+                            <span class="text-xs uppercase tracking-widest opacity-80">BBB Rating</span>
+                        </div>
+                        <img src="https://www.goldsboromasonryllc.com/CSX-masonry-2.jpg" class="rounded-sm grayscale hover:grayscale-0 transition-all duration-500 shadow-xl w-full h-64 object-cover" alt="Brick Work Expert">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services" class="py-24 bg-[#F5F5F5] border-y border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-5xl font-black mb-4 uppercase tracking-tighter">Our Masonry Services</h2>
+                <p class="text-gray-500 max-w-2xl mx-auto">From small upgrades to large-scale construction, we handle projects of all sizes with precision and care.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- S1 -->
+                <div class="bg-white p-10 card-shadow border-t-4 border-brick group hover:-translate-y-2 transition-all duration-300">
+                    <div class="service-icon group-hover:scale-110 transition-transform">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" /></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Brick Laying & Construction</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed">Expert installation for structural walls, facades, and restoration work using premium materials.</p>
+                </div>
+                <!-- S2 -->
+                <div class="bg-white p-10 card-shadow border-t-4 border-brick group hover:-translate-y-2 transition-all duration-300">
+                    <div class="service-icon group-hover:scale-110 transition-transform">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" /></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Stone Masonry</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed">Natural and cultured stone installations that add timeless elegance to any residential or commercial property.</p>
+                </div>
+                <!-- S3 -->
+                <div class="bg-white p-10 card-shadow border-t-4 border-brick group hover:-translate-y-2 transition-all duration-300">
+                    <div class="service-icon group-hover:scale-110 transition-transform">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 10h16M4 14h16M4 18h16" /></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Block Construction</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed">Durable concrete block work for foundations, security walls, and heavy-duty structural applications.</p>
+                </div>
+                <!-- S4 -->
+                <div class="bg-white p-10 card-shadow border-t-4 border-brick group hover:-translate-y-2 transition-all duration-300">
+                    <div class="service-icon group-hover:scale-110 transition-transform">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h10a2 2 0 012 2v14a2 2 0 01-2 2z" /></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Paver Installation</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed">Beautifully designed patios, walkways, and driveways that increase curb appeal and property value.</p>
+                </div>
+                <!-- S5 -->
+                <div class="bg-white p-10 card-shadow border-t-4 border-brick group hover:-translate-y-2 transition-all duration-300">
+                    <div class="service-icon group-hover:scale-110 transition-transform">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" /></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Retaining Walls</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed">Engineered solutions for erosion control and structural landscape enhancement with custom masonry.</p>
+                </div>
+                <!-- S6 -->
+                <div class="bg-white p-10 card-shadow border-t-4 border-brick group hover:-translate-y-2 transition-all duration-300">
+                    <div class="service-icon group-hover:scale-110 transition-transform">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.99 7.99 0 0120 13a7.966 7.966 0 01-2.343 5.657z" /></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Chimneys & Custom Features</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed">Specialized repair and building of chimneys, outdoor fireplaces, and unique architectural masonry.</p>
+                </div>
+            </div>
+
+            <div class="mt-16 text-center">
+                <a href="#contact" class="inline-flex items-center text-brick font-bold text-lg hover:underline underline-offset-8">
+                    Request Your Free Quote
+                    <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+                </a>
+            </div>
+        </div>
+    </section>
+ <!-- RESIDENTIAL -->
+    <section id="residential" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+                <div class="max-w-2xl">
+                    <span class="text-[#B22222] font-black text-sm uppercase tracking-widest mb-4 block">Residential Services</span>
+                    <h2 class="text-5xl font-black">Custom Home Masonry</h2>
+                </div>
+                <p class="text-gray-500 max-w-sm">From elegant stone veneers to structural chimneys, we elevate the value of your home.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="space-y-4">
+                    <div class="img-container h-64">
+                        <span class="project-tag">Outdoor Living</span>
+                        <img src="https://www.goldsboromasonryllc.com/bookerparker1.jpeg" alt="Residential">
+                    </div>
+                    <h3 class="text-xl font-bold">Patios & Walkways</h3>
+                    <p class="text-gray-500 text-sm">Professional pavers and stone patterns for high-end outdoor entertaining areas.</p>
+                </div>
+                <div class="space-y-4">
+                    <div class="img-container h-64">
+                        <span class="project-tag">Interior</span>
+                        <img src="https://www.goldsboromasonryllc.com/bookerparker2.jpeg" alt="Residential">
+                    </div>
+                    <h3 class="text-xl font-bold">Fireplace Design</h3>
+                    <p class="text-gray-500 text-sm">Custom brick and stone hearths that serve as the centerpiece of your living space.</p>
+                </div>
+                <div class="space-y-4">
+                    <div class="img-container h-64">
+                        <span class="project-tag">Structural</span>
+                        <img src="https://www.goldsboromasonryllc.com/CSX-masonry-5.jpg" alt="Residential">
+                    </div>
+                    <h3 class="text-xl font-bold">Steps & Foundations</h3>
+                    <p class="text-gray-500 text-sm">Solid masonry for entryways and residential additions that are built to last.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- COMMERCIAL & INDUSTRIAL (Incorporating your new photo) -->
+    <section id="commercial" class="py-24 bg-[#121212] text-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div class="img-container aspect-video lg:aspect-square">
+                    <!-- NEW INDUSTRIAL PHOTO INTEGRATED HERE -->
+                    <span class="project-tag bg-white text-black">New Construction</span>
+                    <img src="https://www.goldsboromasonryllc.com/bartonscoreboard1.png" alt="Industrial Project" class="opacity-90">
+                </div>
+                <div>
+                    <span class="text-[#B22222] font-black text-sm uppercase tracking-widest mb-4 block">Commercial & Industrial</span>
+                    <h2 class="text-5xl font-black mb-8 leading-tight">Built for <br>Scale & Speed</h2>
+                    <p class="text-gray-400 text-lg mb-10 leading-relaxed">
+                        We handle large-scale block work and industrial projects with a focus on timeline adherence and structural integrity. Our teams are equipped for the most demanding sites in the state.
+                    </p>
+                    <div class="space-y-6">
+                        <div class="flex items-center p-4 bg-white/5 border border-white/10">
+                            <div class="w-2 h-2 bg-[#B22222] mr-4"></div>
+                            <span class="font-bold">CMU Block Foundations</span>
+                        </div>
+                        <div class="flex items-center p-4 bg-white/5 border border-white/10">
+                            <div class="w-2 h-2 bg-[#B22222] mr-4"></div>
+                            <span class="font-bold">Multi-Unit Apartment Complexes</span>
+                        </div>
+                        <div class="flex items-center p-4 bg-white/5 border border-white/10">
+                            <div class="w-2 h-2 bg-[#B22222] mr-4"></div>
+                            <span class="font-bold">Industrial Retaining Walls</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FULL VISIBILITY GALLERY -->
+    <section id="gallery" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-5xl font-black mb-4 uppercase tracking-tighter">Project <span class="text-[#B22222]">Gallery</span></h2>
+                <p class="text-gray-500">Real work for real clients in North Carolina.</p>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="img-container h-64"><img src="https://www.goldsboromasonryllc.com/CSX-masonry-3.jpg" alt="P1"></div>
+                <div class="img-container h-64"><img src="https://www.goldsboromasonryllc.com/CSX-masonry-4.jpg" alt="P2"></div>
+                <div class="img-container h-64"><img src="https://www.goldsboromasonryllc.com/CSX-masonry-6.jpg" alt="P3"></div>
+                <div class="img-container h-64"><img src="https://www.goldsboromasonryllc.com/Abbington-Village-Masonry-Goldsboro-NC-1.JPEG" alt="P4"></div>
+                <div class="img-container h-64 md:col-span-2"><img src="https://www.goldsboromasonryllc.com/Abbington-Village-Masonry-Goldsboro-NC-2.JPEG" alt="P5"></div>
+                <div class="img-container h-64 md:col-span-2"><img src="https://www.goldsboromasonryllc.com/Abbington-Village-Masonry-Goldsboro-NC-3.JPEG" alt="P6"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHY CHOOSE US -->
+    <section id="why-us" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row gap-16 items-center">
+                <div class="md:w-1/2">
+                    <img src="https://www.goldsboromasonryllc.com/Abbington-Village-Masonry-Goldsboro-NC-1.JPEG" class="rounded-sm shadow-2xl w-full h-[500px] object-cover" alt="Abbington Village Project">
+                </div>
+                <div class="md:w-1/2">
+                    <h2 class="text-5xl font-black mb-10 uppercase tracking-tighter">Why Homeowners & <br/>Contractors Choose Us</h2>
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 bg-brick/10 p-2 rounded">
+                                <svg class="w-6 h-6 text-brick" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="text-lg font-bold">28+ Years of Proven Experience</h4>
+                                <p class="text-gray-500 text-sm">Deeply rooted industry expertise in NC masonry construction.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 bg-brick/10 p-2 rounded">
+                                <svg class="w-6 h-6 text-brick" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="text-lg font-bold">Family-Owned & Operated</h4>
+                                <p class="text-gray-500 text-sm">Personal accountability and direct owner oversight on every job.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 bg-brick/10 p-2 rounded">
+                                <svg class="w-6 h-6 text-brick" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="text-lg font-bold">BBB A+ Rating</h4>
+                                <p class="text-gray-500 text-sm">A reputation built on integrity and consistent customer satisfaction.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 bg-brick/10 p-2 rounded">
+                                <svg class="w-6 h-6 text-brick" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="text-lg font-bold">Free Estimates</h4>
+                                <p class="text-gray-500 text-sm">Transparent pricing and zero-obligation quotes within our service area.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+ <!-- SERVICE AREA -->
+    <section class="py-16 bg-white border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h3 class="text-charcoal font-bold text-xl mb-8">Proudly Serving Eastern North Carolina</h3>
+            <div class="flex flex-wrap justify-center gap-6 md:gap-12 opacity-70">
+                <span class="font-semibold text-charcoal">Goldsboro</span>
+                <span class="font-semibold text-charcoal">Raleigh</span>
+                <span class="font-semibold text-charcoal">Wilson</span>
+                <span class="font-semibold text-charcoal">Greenville</span>
+                <span class="font-semibold text-charcoal">Rocky Mount</span>
+            </div>
+            <p class="mt-8 text-gray-400 text-sm italic">And surrounding areas within a 50-mile radius</p>
+        </div>
+    </section>
+
+    <!-- CONTACT FORM SECTION -->
+    <section id="contact" class="py-24 bg-[#F5F5F5]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-5 gap-16 items-start">
+                <div class="md:col-span-2">
+                    <h2 class="text-5xl font-black mb-8 uppercase tracking-tighter">Ready to Start Your <span class="text-brick italic">Project?</span></h2>
+                    <p class="text-gray-600 text-lg mb-10 leading-relaxed">
+                        Get expert masonry work at competitive prices. Whether it’s a small repair or a large construction project, we’re here to help from start to finish.
+                    </p>
+                    <div class="space-y-6">
+                        <div class="flex items-center group">
+                            <div class="w-12 h-12 rounded-full border border-gray-300 flex items-center justify-center group-hover:border-brick transition-colors">
+                                <svg class="w-6 h-6 text-brick" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
+                            </div>
+                            <div class="ml-4">
+                                <p class="text-xs text-gray-500 uppercase font-bold tracking-widest">Call Today</p>
+                                <p class="text-xl font-bold">(919) 440-9715</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center group">
+                            <div class="w-12 h-12 rounded-full border border-gray-300 flex items-center justify-center group-hover:border-brick transition-colors">
+                                <svg class="w-6 h-6 text-brick" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+                            </div>
+                            <div class="ml-4">
+                                <p class="text-xs text-gray-500 uppercase font-bold tracking-widest">Email Us</p>
+                                <p class="text-lg font-bold">goldsboromasonry@gmail.com</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:col-span-3 bg-white p-10 card-shadow border-t-4 border-brick">
+                    <h3 class="text-2xl font-bold mb-8">Request a Free Estimate</h3>
+                    <form id="contactForm" class="grid grid-cols-1 gap-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-xs font-bold text-charcoal uppercase tracking-widest mb-2">Name</label>
+                                <input type="text" required placeholder="Your full name" class="form-input w-full p-4 bg-gray-50 border border-gray-200 rounded-sm">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-charcoal uppercase tracking-widest mb-2">Phone</label>
+                                <input type="tel" required placeholder="(000) 000-0000" class="form-input w-full p-4 bg-gray-50 border border-gray-200 rounded-sm">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-charcoal uppercase tracking-widest mb-2">Email Address</label>
+                            <input type="email" required placeholder="email@example.com" class="form-input w-full p-4 bg-gray-50 border border-gray-200 rounded-sm">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-charcoal uppercase tracking-widest mb-2">Project Details</label>
+                            <textarea rows="4" required placeholder="Tell us about your project..." class="form-input w-full p-4 bg-gray-50 border border-gray-200 rounded-sm"></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary text-white py-5 rounded-sm font-bold uppercase tracking-widest text-sm">Get My Free Quote</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-charcoal text-white py-20 border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-12 mb-16">
+                <div class="col-span-2">
+                    <div class="flex items-center mb-8">
+                        <img src="https://www.goldsboromasonryllc.com/GMlogoCircleTrans2.png" alt="GM Logo" class="h-12 w-auto mr-3 brightness-200">
+                        <div class="flex flex-col leading-tight">
+                            <span class="text-xl font-bold tracking-tight text-white">GOLDSBORO <span class="text-brick">MASONRY</span></span>
+                            <span class="text-[10px] uppercase tracking-[0.2em] font-semibold text-gray-500">Excellence in every stone</span>
+                        </div>
+                    </div>
+                    <p class="text-gray-500 max-w-sm leading-relaxed mb-6">
+                        Delivering high-quality residential and commercial masonry services across Eastern NC for nearly three decades.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="text-sm font-bold uppercase tracking-widest mb-6">Contact</h4>
+                    <p class="text-gray-500 text-sm mb-4">401 Green Drive<br/>Goldsboro, NC 27534</p>
+                    <p class="text-gray-500 text-sm mb-4">📞 (919) 440-9715</p>
+                    <p class="text-gray-500 text-sm">✉️ goldsboromasonry@gmail.com</p>
+                </div>
+                <div>
+                    <h4 class="text-sm font-bold uppercase tracking-widest mb-6">Quick Links</h4>
+                    <ul class="space-y-4 text-sm text-gray-500">
+                        <li><a href="#residential" class="hover:text-brick">Residential</a></li>
+                        <li><a href="#commercial" class="hover:text-brick">Commercial</a></li>
+                        <li><a href="#gallery" class="hover:text-brick">Portfolio</a></li>
+                        <li><a href="#contact" class="hover:text-brick">Free Quote</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-gray-600 text-xs">&copy; 2024 Goldsboro Masonry LLC. All Rights Reserved.</p>
+                <div class="flex space-x-6 text-xs text-gray-600">
+                    <a href="#" class="hover:text-white">Privacy Policy</a>
+                    <a href="#" class="hover:text-white">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Mobile CTA -->
+    <div class="md:hidden floating-cta">
+        <a href="tel:9194409715" class="bg-brick text-white p-4 rounded-full shadow-2xl flex items-center justify-center">
+            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" /></svg>
+        </a>
+    </div>
+
+    <script>
+        // Smooth scroll for anchors
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Form submission logic
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const btn = this.querySelector('button');
+            const originalText = btn.innerText;
+            btn.innerText = 'Sending Request...';
+            btn.disabled = true;
+            
+            setTimeout(() => {
+                btn.innerText = 'Quote Request Received!';
+                btn.style.backgroundColor = '#10B981';
+                this.reset();
+                setTimeout(() => {
+                    btn.innerText = originalText;
+                    btn.style.backgroundColor = '';
+                    btn.disabled = false;
+                }, 4000);
+            }, 1500);
+        });
+    </script>
+</body>
+</html>
